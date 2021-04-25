@@ -1,13 +1,1011 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  outline: 0;
+  border: 0;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-family: "Spartan";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -1px;
+  color: #0c0e16;
 }
+
+h2 {
+  font-family: "Spartan";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.8px;
+}
+
+h3 {
+  font-family: "Spartan";
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}
+
+p {
+  font-family: "Spartan";
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #888eb0;
+}
+
+.text2 {
+  font-family: "Spartan";
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: -0.23px;
+  color: #0c0e16;
+}
+
+.night {
+  background-color: #141625;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #f8f8fb;
+  height: 100vh;
+  min-height: 100vh;
+  padding-top: 72px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 110px;
+}
+
+*::-webkit-scrollbar-thumb {
+  height: 110px;
+  background-clip: padding-box;
+  width: 10px;
+  background-color: #dfe3fa;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin-right: 10px;
+}
+
+::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 32px;
+}
+
+::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 82px;
+}
+
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  max-width: 730px;
+}
+
+.main header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 64px;
+}
+
+.main header .left {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main header .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main header .right .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 120px;
+  margin-right: 40px;
+}
+
+.main header .right .new-invoice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 150px;
+  height: 48px;
+  background-color: #7c5dfa;
+  border-radius: 24px;
+  padding: 8px;
+}
+
+.main header .right .new-invoice .circle {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main header .right .new-invoice p {
+  width: 102px;
+  text-align: center;
+  color: white;
+}
+
+.main .invoice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: white;
+  height: 72px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  -webkit-box-shadow: 0 16px rgba(72, 84, 159, 0.1), rgba(72, 84, 159, 0);
+          box-shadow: 0 16px rgba(72, 84, 159, 0.1), rgba(72, 84, 159, 0);
+  padding-left: 32px;
+  padding-right: 24px;
+  text-align: left;
+}
+
+.main .invoice .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 60px;
+}
+
+.main .invoice .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .invoice .id {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.main .invoice .id p {
+  font-family: "Spartan";
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #0c0e16;
+}
+
+.main .invoice .id .hash {
+  color: #7e88c3;
+}
+
+.main .no-invoices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-top: 140px;
+}
+
+.main .no-invoices h2 {
+  margin-top: 64px;
+  margin-bottom: 20px;
+}
+
+.sidebar {
+  z-index: 1;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100vh;
+  background-color: #1e2139;
+  border-radius: 0 20px 20px 0;
+}
+
+.sidebar .logo {
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0 20px 20px 0;
+  overflow: hidden;
+  background-color: #7c5dfa;
+}
+
+.sidebar .logo svg {
+  z-index: 1;
+}
+
+.sidebar .logo .light {
+  position: absolute;
+  top: 50px;
+  width: 100px;
+  height: 50px;
+  background-color: #9277ff;
+  border-radius: 20px 0 20px 0;
+}
+
+.sidebar .bottom {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 32px;
+  background-color: transparent;
+}
+
+.sidebar .border {
+  width: 100%;
+  height: 1px;
+  background-color: #494e6e;
+}
+
+.sidebar .profile-picture {
+  width: 40px;
+  height: 40px;
+  background-image: url("/assets/image-avatar.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  margin: 24px 0;
+}
+
+.status {
+  width: 104px;
+  height: 40px;
+  border-radius: 6px;
+  margin-right: 20px;
+  margin-left: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.status .circle {
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+
+.paid {
+  background-color: rgba(51, 214, 159, 0.1);
+}
+
+.paid h3 {
+  color: #33d69f;
+}
+
+.paid .circle {
+  background-color: #33d69f;
+}
+
+.pending {
+  background-color: rgba(255, 143, 0, 0.1);
+}
+
+.pending h3 {
+  color: #ff8f00;
+}
+
+.pending .circle {
+  background-color: #ff8f00;
+}
+
+.draft {
+  background-color: rgba(55, 59, 83, 0.1);
+}
+
+.draft h3 {
+  color: #373b53;
+}
+
+.draft .circle {
+  background-color: #373b53;
+}
+
+.edit-invoice {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  max-width: 730px;
+}
+
+.edit-invoice .back {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 32px;
+}
+
+.edit-invoice .back p {
+  margin-left: 24px;
+}
+
+.edit-invoice .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: white;
+  padding: 24px 32px;
+}
+
+.edit-invoice .top .left,
+.edit-invoice .top .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  align-items: center;
+}
+
+.edit-invoice .top .left button,
+.edit-invoice .top .right button {
+  height: 48px;
+  padding: 16px 24px;
+  border-radius: 24px;
+  margin-left: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.edit-invoice .top .left .edit,
+.edit-invoice .top .right .edit {
+  background-color: #f9fafe;
+}
+
+.edit-invoice .top .left .delete,
+.edit-invoice .top .right .delete {
+  background-color: #ec5757;
+}
+
+.edit-invoice .top .left .delete p,
+.edit-invoice .top .right .delete p {
+  color: white;
+}
+
+.edit-invoice .top .left .mark-paid,
+.edit-invoice .top .right .mark-paid {
+  background-color: #9277ff;
+}
+
+.edit-invoice .top .left .mark-paid p,
+.edit-invoice .top .right .mark-paid p {
+  color: white;
+}
+
+.edit-invoice .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  margin-top: 24px;
+  padding: 24px 32px;
+}
+
+.edit-invoice .info .first-section {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.edit-invoice .info .first-section h2 {
+  padding-bottom: 15px;
+}
+
+.edit-invoice .info .first-section ul {
+  list-style: none;
+  text-align: right;
+}
+
+.edit-invoice .info .first-section ul li {
+  padding: 5px;
+}
+
+.edit-invoice .info .second-section {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 25px;
+}
+
+.edit-invoice .info .second-section .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 130px;
+  width: 30%;
+}
+
+.edit-invoice .info .second-section .left h3 {
+  padding-top: 15px;
+  padding-bottom: 40px;
+}
+
+.edit-invoice .info .second-section .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 130px;
+  width: 40%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: left;
+}
+
+.edit-invoice .info .second-section .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 130px;
+  width: 30%;
+}
+
+.edit-invoice .info .second-section .right p {
+  padding-bottom: 20px;
+}
+
+.edit-invoice .info .receipt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: 25px;
+  padding: 32px;
+  background-color: #f9fafe;
+  border-radius: 20px 20px 0 0;
+}
+
+.edit-invoice .info .receipt table {
+  width: 100%;
+}
+
+.edit-invoice .info .receipt table tr {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 0;
+}
+
+.edit-invoice .info .receipt table td {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.edit-invoice .info .receipt table .item-1 {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 40%;
+}
+
+.edit-invoice .info .receipt table .black {
+  color: #0c0e16;
+}
+
+.edit-invoice .info .total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: #373b53;
+  border-radius: 0 0 20px 20px;
+  padding: 32px;
+}
+
+.edit-invoice .info .total h1,
+.edit-invoice .info .total p {
+  color: white;
+}
+
+.full {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.full .confirm-deletion-container {
+  width: 480px;
+  height: 250px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 48px;
+}
+
+.full .confirm-deletion-container h1 {
+  margin-bottom: 15px;
+}
+
+.full .confirm-deletion-container p {
+  line-height: 24px;
+  text-align: center;
+}
+
+.full .confirm-deletion-container .buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.full .confirm-deletion-container .buttons button {
+  height: 48px;
+  padding: 16px 24px;
+  border-radius: 24px;
+  margin-left: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.full .confirm-deletion-container .buttons .cancel {
+  background-color: #f9fafe;
+}
+
+.full .confirm-deletion-container .buttons .delete {
+  background-color: #ec5757;
+}
+
+.full .confirm-deletion-container .buttons .delete p {
+  color: white;
+}
+
+.data-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.data-full .data-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 740px;
+  height: 100%;
+  padding: 40px;
+  background-color: white;
+  border-radius: 0 20px 20px 0;
+  padding-left: 160px;
+  padding-bottom: 32px;
+}
+
+.data-full .data-edit {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  padding-right: 15px;
+}
+
+.data-full .data-edit h1 {
+  font-size: 24px;
+}
+
+.data-full .data-edit h3 {
+  color: #9277ff;
+  padding-bottom: 24px;
+}
+
+.data-full .data-edit p {
+  color: #7e88c3;
+  padding-bottom: 10px;
+}
+
+.data-full .data-edit label {
+  width: 100%;
+}
+
+.data-full .data-edit input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #dfe3fa;
+  border-radius: 4px;
+  font-family: "Spartan";
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  margin-bottom: 25px;
+  width: 100%;
+  text-align: left;
+  padding: 17px 0 14px 15px;
+}
+
+.data-full .data-edit .from,
+.data-full .data-edit .to {
+  margin-top: 48px;
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.data-full .data-edit .three {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 24px;
+          column-gap: 24px;
+}
+
+.data-full .data-edit .two {
+  margin-top: 48px;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 24px;
+          column-gap: 24px;
+}
+
+.data-full .data-edit .nothing {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.data-full .data-edit .invoice-item {
+  width: 100%;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 215px 50px 100px 87px;
+      grid-template-columns: 215px 50px 100px 87px;
+  -webkit-column-gap: 16px;
+          column-gap: 16px;
+}
+
+.data-full .data-edit .invoice-item .last {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 17px;
+}
+/*# sourceMappingURL=index.css.map */

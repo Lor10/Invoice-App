@@ -1,0 +1,608 @@
+@mixin title {
+    font-family: "Spartan";
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -1px;
+}
+@mixin subtitle-large {
+    font-family: "Spartan";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: -0.63px;
+}
+@mixin subtitle {
+    font-family: "Spartan";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+}
+@mixin subtitle-small {
+    font-family: "Spartan";
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+}
+@mixin text-1 {
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+}
+@mixin text-2 {
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 18px;
+    letter-spacing: -0.23px;
+}
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$primary: rgb(124, 93, 250);
+$primary-light: rgb(146, 119, 255);
+$primary-night: rgb(30, 33, 57);
+$primary-night-2: rgb(20, 22, 37);
+
+$background-color: rgb(248, 248, 251);
+$hash-color: rgb(126, 136, 195);
+$title-color: rgb(12, 14, 22);
+$text-color: rgb(136, 142, 176);
+$dark-white: rgb(249, 250, 254);
+
+$paid-status: rgba(51, 214, 159, 1);
+$paid-status-bg: rgba(51, 214, 159, 0.1);
+$pending-status: rgba(255, 143, 0, 1);
+$pending-status-bg: rgba(255, 143, 0, 0.1);
+$draft-status: rgba(55, 59, 83, 1);
+$draft-status-bg: rgba(55, 59, 83, 0.1);
+
+* {
+    margin: 0;
+    outline: 0;
+    border: 0;
+    padding: 0;
+}
+h1 {
+    @include title;
+    color: $title-color;
+}
+h2 {
+    @include subtitle;
+}
+h3 {
+    @include subtitle-small;
+}
+p {
+    @include text-1;
+    color: $text-color;
+}
+.text2 {
+    @include text-2;
+    color: $title-color;
+}
+
+.night {
+    background-color: $primary-night-2;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: $background-color;
+    height: 100vh;
+    min-height: 100vh;
+    padding-top: 72px;
+}
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 110px;
+}
+*::-webkit-scrollbar-thumb {
+    height: 110px;
+    background-clip: padding-box;
+    width: 10px;
+    background-color: rgb(223, 227, 250);
+    border-radius: 8px;
+}
+*::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+*::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+    margin-right: 10px;
+}
+::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 32px;
+}
+
+::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 82px;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+}
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 730px;
+    header {
+        @include flex;
+        margin-bottom: 64px;
+        .left {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .right {
+            @include center;
+
+            .filter {
+                @include flex;
+                width: 120px;
+                margin-right: 40px;
+            }
+            .new-invoice {
+                @include flex;
+                justify-content: flex-start;
+                width: 150px;
+                height: 48px;
+                background-color: $primary;
+                border-radius: 24px;
+                padding: 8px;
+
+                .circle {
+                    background-color: white;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                    @include center;
+                }
+                p {
+                    width: 102px;
+                    text-align: center;
+                    color: white;
+                }
+            }
+        }
+    }
+    .invoice {
+        @include flex;
+        flex-direction: row;
+        background-color: white;
+        height: 72px;
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        box-shadow: 0 16px rgba(72, 84, 159, 0.1), rgba(72, 84, 159, 0);
+        padding-left: 32px;
+        padding-right: 24px;
+        text-align: left;
+        .left {
+            @include flex;
+            gap: 60px;
+        }
+        .right {
+            @include flex;
+        }
+        .id {
+            display: flex;
+            justify-content: flex-start;
+            p {
+                @include subtitle-small;
+                color: $title-color;
+            }
+            .hash {
+                color: $hash-color;
+            }
+        }
+    }
+    .no-invoices {
+        @include flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 140px;
+        h2 {
+            margin-top: 64px;
+            margin-bottom: 20px;
+        }
+    }
+}
+.sidebar {
+    z-index: 1;
+    position: fixed;
+    @include flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100vh;
+    background-color: $primary-night;
+    border-radius: 0 20px 20px 0;
+    .logo {
+        width: 100px;
+        height: 100px;
+        @include center;
+        border-radius: 0 20px 20px 0;
+        overflow: hidden;
+        background-color: $primary;
+        svg {
+            z-index: 1;
+        }
+        .light {
+            position: absolute;
+            top: 50px;
+            width: 100px;
+            height: 50px;
+            background-color: $primary-light;
+            border-radius: 20px 0 20px 0;
+        }
+    }
+    .bottom {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .icon {
+        @include center;
+        margin-bottom: 32px;
+        background-color: transparent;
+    }
+    .border {
+        width: 100%;
+        height: 1px;
+        background-color: rgb(73, 78, 110);
+    }
+    .profile-picture {
+        width: 40px;
+        height: 40px;
+        background-image: url("/assets/image-avatar.jpg");
+        background-size: cover;
+        border-radius: 50%;
+        margin: 24px 0;
+    }
+}
+.status {
+    width: 104px;
+    height: 40px;
+    border-radius: 6px;
+    margin-right: 20px;
+    margin-left: 40px;
+    @include center;
+    .circle {
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+        border-radius: 4px;
+    }
+}
+.paid {
+    background-color: $paid-status-bg;
+    h3 {
+        color: $paid-status;
+    }
+    .circle {
+        background-color: $paid-status;
+    }
+}
+.pending {
+    background-color: $pending-status-bg;
+    h3 {
+        color: $pending-status;
+    }
+    .circle {
+        background-color: $pending-status;
+    }
+}
+.draft {
+    background-color: $draft-status-bg;
+    h3 {
+        color: $draft-status;
+    }
+    .circle {
+        background-color: $draft-status;
+    }
+}
+.edit-invoice {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 730px;
+    .back {
+        @include flex;
+        justify-content: flex-start;
+        margin-bottom: 32px;
+        p {
+            margin-left: 24px;
+        }
+    }
+    .top {
+        @include flex;
+        width: 100%;
+        background-color: white;
+        padding: 24px 32px;
+        .left,
+        .right {
+            @include flex;
+            align-items: center;
+            button {
+                height: 48px;
+                padding: 16px 24px;
+                border-radius: 24px;
+                margin-left: 8px;
+                @include center;
+            }
+            .edit {
+                background-color: $dark-white;
+            }
+            .delete {
+                background-color: rgb(236, 87, 87);
+                p {
+                    color: white;
+                }
+            }
+            .mark-paid {
+                background-color: $primary-light;
+                p {
+                    color: white;
+                }
+            }
+        }
+    }
+    .info {
+        @include flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        background-color: white;
+        margin-top: 24px;
+        padding: 24px 32px;
+        .first-section {
+            width: 100%;
+            @include flex;
+            align-items: flex-start;
+            h2 {
+                padding-bottom: 15px;
+            }
+            ul {
+                list-style: none;
+                text-align: right;
+                li {
+                    padding: 5px;
+                }
+            }
+        }
+        .second-section {
+            width: 100%;
+            @include flex;
+            align-items: flex-start;
+            padding-top: 25px;
+            .left {
+                @include flex;
+                align-items: flex-start;
+                flex-direction: column;
+                height: 130px;
+                width: 30%;
+                h3 {
+                    padding-top: 15px;
+                    padding-bottom: 40px;
+                }
+            }
+            .center {
+                @include flex;
+                align-items: flex-start;
+                height: 130px;
+                width: 40%;
+                flex-direction: column;
+                text-align: left;
+            }
+            .right {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                height: 130px;
+                width: 30%;
+                p {
+                    padding-bottom: 20px;
+                }
+            }
+        }
+        .receipt {
+            @include center;
+            width: 100%;
+            margin-top: 25px;
+            padding: 32px;
+            background-color: $dark-white;
+            border-radius: 20px 20px 0 0;
+            table {
+                width: 100%;
+                tr {
+                    width: 100%;
+                    @include flex;
+                    padding: 15px 0;
+                }
+                td {
+                    width: 20%;
+                    @include center;
+                }
+                .item-1 {
+                    justify-content: flex-start;
+                    width: 40%;
+                }
+                .black {
+                    color: $title-color;
+                }
+            }
+        }
+        .total {
+            @include flex;
+            width: 100%;
+            background-color: $draft-status;
+            border-radius: 0 0 20px 20px;
+            padding: 32px;
+            h1,
+            p {
+                color: white;
+            }
+        }
+    }
+}
+.full {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    @include center;
+    .confirm-deletion-container {
+        width: 480px;
+        height: 250px;
+        background-color: white;
+        @include flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 48px;
+        h1 {
+            margin-bottom: 15px;
+        }
+        p {
+            line-height: 24px;
+            text-align: center;
+        }
+        .buttons {
+            width: 100%;
+            @include flex;
+            justify-content: flex-end;
+            button {
+                height: 48px;
+                padding: 16px 24px;
+                border-radius: 24px;
+                margin-left: 8px;
+                @include center;
+            }
+            .cancel {
+                background-color: $dark-white;
+            }
+            .delete {
+                background-color: rgb(236, 87, 87);
+                p {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+.data-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    .data-container {
+        box-sizing: border-box;
+        width: 740px;
+        height: 100%;
+        padding: 40px;
+        background-color: white;
+        border-radius: 0 20px 20px 0;
+        padding-left: 160px;
+        padding-bottom: 32px;
+    }
+    .data-edit {
+        overflow-y: scroll;
+        width: 100%;
+        height: 100%;
+        padding-right: 15px;
+
+        h1 {
+            font-size: 24px;
+        }
+        h3 {
+            color: $primary-light;
+            padding-bottom: 24px;
+        }
+        p {
+            color: $hash-color;
+            padding-bottom: 10px;
+        }
+        label {
+            width: 100%;
+        }
+        input {
+            box-sizing: border-box;
+            border: 1px solid rgb(223, 227, 250);
+            border-radius: 4px;
+            @include text-1;
+            margin-bottom: 25px;
+            width: 100%;
+            text-align: left;
+            padding: 17px 0 14px 15px;
+        }
+
+        .from,
+        .to {
+            margin-top: 48px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .three {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 24px;
+        }
+        .two {
+            margin-top: 48px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 24px;
+        }
+        .nothing {
+            padding: 10px 0;
+            text-align: center;
+        }
+        .add-item-button {
+        }
+        .invoice-item {
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: 215px 50px 100px 87px;
+            column-gap: 16px;
+            .last {
+                width: 100%;
+                @include flex;
+                align-items: flex-start;
+                padding-top: 17px;
+            }
+        }
+    }
+}
